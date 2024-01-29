@@ -4,6 +4,7 @@
 #include <sys/wait.h>
 #include "syscall.h"
 #include "pthread_impl.h"
+#include <libc_fs_helpers.h>
 
 struct ctx {
 	int fd;
@@ -33,6 +34,9 @@ static int checker(void *p)
 
 int faccessat(int fd, const char *filename, int amode, int flag)
 {
+	NOT_IMPLEMENTED(__func__);
+	return -1;
+	
 	if (!flag || (flag==AT_EACCESS && getuid()==geteuid() && getgid()==getegid()))
 		return syscall(SYS_faccessat, fd, filename, amode, flag);
 

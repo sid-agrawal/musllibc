@@ -7,6 +7,7 @@
 
 int fcntl(int fd, int cmd, ...)
 {
+	NOT_IMPLEMENTED(__func__);
 	unsigned long arg;
 	va_list ap;
 	va_start(ap, cmd);

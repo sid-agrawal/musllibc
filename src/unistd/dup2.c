@@ -2,9 +2,13 @@
 #include <errno.h>
 #include <fcntl.h>
 #include "syscall.h"
+#include <libc_fs_helpers.h>
 
 int dup2(int old, int new)
 {
+	NOT_IMPLEMENTED(__func__);
+	return -1;
+	
 	int r;
 #ifdef SYS_dup2
 	while ((r=__syscall(SYS_dup2, old, new))==-EBUSY);

@@ -3,9 +3,13 @@
 #include <limits.h>
 #include <string.h>
 #include "syscall.h"
+#include <libc_fs_helpers.h>
 
 char *getcwd(char *buf, size_t size)
 {
+	NOT_IMPLEMENTED(__func__);
+	return 0;
+
 	char tmp[PATH_MAX];
 	if (!buf) {
 		buf = tmp;

@@ -6,6 +6,9 @@
 
 ssize_t pwritev(int fd, const struct iovec *iov, int count, off_t ofs)
 {
+	NOT_IMPLEMENTED(__func__);
+	return -1;
+	
 	return syscall_cp(SYS_pwritev, fd, iov, count,
 		(long)(ofs), (long)(ofs>>32));
 }

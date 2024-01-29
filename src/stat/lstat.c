@@ -5,6 +5,8 @@
 
 int lstat(const char *restrict path, struct stat *restrict buf)
 {
+	return stat(path, buf);
+	
 #ifdef SYS_lstat
 	return syscall(SYS_lstat, path, buf);
 #else

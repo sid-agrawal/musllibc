@@ -5,6 +5,7 @@
 
 int openat(int fd, const char *filename, int flags, ...)
 {
+	NOT_IMPLEMENTED(__func__);
 	mode_t mode = 0;
 
 	if ((flags & O_CREAT) || (flags & O_TMPFILE) == O_TMPFILE) {
