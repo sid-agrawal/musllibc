@@ -4,7 +4,7 @@
 
 int fsync(int fd)
 {
-	NOT_IMPLEMENTED(__func__);
-	return -1;
+	NOOP(__func__);
+
 	return syscall_cp(SYS_fsync, fd);
 }

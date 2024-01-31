@@ -4,7 +4,8 @@
 
 int ftruncate(int fd, off_t length)
 {
-	NOT_IMPLEMENTED(__func__);
+	NOOP(__func__);
+	
 	return syscall(SYS_ftruncate, fd, __SYSCALL_LL_O(length));
 }
 

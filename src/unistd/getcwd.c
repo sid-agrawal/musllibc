@@ -7,8 +7,13 @@
 
 char *getcwd(char *buf, size_t size)
 {
+	if (libc_fs_ops.getcwd)
+	{
+		char* ret = libc_fs_ops.getcwd(buf, size);
+		return ret;
+	}
 	NOT_IMPLEMENTED(__func__);
-	return 0;
+	return NULL;
 
 	char tmp[PATH_MAX];
 	if (!buf) {

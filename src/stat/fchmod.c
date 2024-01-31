@@ -2,11 +2,14 @@
 #include <errno.h>
 #include <fcntl.h>
 #include "syscall.h"
+#include "libc_fs_helpers.h"
 
 void __procfdname(char *, unsigned);
 
 int fchmod(int fd, mode_t mode)
 {
+	NOOP(__func__);
+
 	int ret = __syscall(SYS_fchmod, fd, mode);
 	if (ret != -EBADF || __syscall(SYS_fcntl, fd, F_GETFD) < 0)
 		return __syscall_ret(ret);
