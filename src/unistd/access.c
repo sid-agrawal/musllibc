@@ -5,6 +5,12 @@
 
 int access(const char *filename, int amode)
 {
+	if (libc_fs_ops.access)
+	{
+		int res = libc_fs_ops.access(filename, amode);
+		return res;
+	}
+
 	NOT_IMPLEMENTED(__func__);
 	return -1;
 	
