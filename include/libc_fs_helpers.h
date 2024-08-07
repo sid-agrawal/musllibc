@@ -32,7 +32,6 @@ struct fs_ops
     char *(*getcwd)(char *, size_t);          // buf, size
     int (*fcntl)(int, int, ...);              // fd, cmd, ...
     int (*pread)(int, void *, int, int);      // fd, buf, count, offset
-    int (*access)(const char *, int);         // filename, amode
 };
 
 extern struct fs_ops libc_fs_ops;
