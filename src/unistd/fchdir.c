@@ -2,15 +2,11 @@
 #include <errno.h>
 #include <fcntl.h>
 #include "syscall.h"
-#include <libc_fs_helpers.h>
 
 void __procfdname(char *, unsigned);
 
 int fchdir(int fd)
 {
-	NOT_IMPLEMENTED(__func__);
-	return -1;
-	
 	int ret = __syscall(SYS_fchdir, fd);
 	if (ret != -EBADF || __syscall(SYS_fcntl, fd, F_GETFD) < 0)
 		return __syscall_ret(ret);

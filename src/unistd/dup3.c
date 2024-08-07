@@ -7,9 +7,6 @@
 
 int __dup3(int old, int new, int flags)
 {
-	NOT_IMPLEMENTED(__func__);
-	return -1;
-	
 	int r;
 #ifdef SYS_dup2
 	if (old==new) return __syscall_ret(-EINVAL);

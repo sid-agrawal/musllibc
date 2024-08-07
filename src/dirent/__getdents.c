@@ -4,7 +4,6 @@
 
 int __getdents(int fd, struct dirent *buf, size_t len)
 {
-	NOT_IMPLEMENTED(__func__);
 	return syscall(SYS_getdents, fd, buf, len);
 }
 

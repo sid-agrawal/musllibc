@@ -5,13 +5,6 @@
 
 int stat(const char *restrict path, struct stat *restrict buf)
 {
-	if (libc_fs_ops.stat){
-        int ret = libc_fs_ops.stat(path, buf);
-        return ret;
-    }
-    NOT_IMPLEMENTED(__func__);
-	return -1;
-
 #ifdef SYS_stat
 	return syscall(SYS_stat, path, buf);
 #else

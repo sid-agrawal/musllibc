@@ -8,13 +8,6 @@ void __procfdname(char *, unsigned);
 
 int fstat(int fd, struct stat *st)
 {
-	if (libc_fs_ops.fstat){
-        int ret = libc_fs_ops.fstat(fd, st);
-        return ret;
-    }
-    NOT_IMPLEMENTED(__func__);
-    return -1;
-
 	int ret = __syscall(SYS_fstat, fd, st);
 	if (ret != -EBADF || __syscall(SYS_fcntl, fd, F_GETFD) < 0)
 		return __syscall_ret(ret);

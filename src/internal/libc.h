@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
-#include <libc_fs_helpers.h>
 
 struct __locale_map;
 
