@@ -8,8 +8,7 @@ void __procfdname(char *, unsigned);
 
 int fchown(int fd, uid_t uid, gid_t gid)
 {
-	NOOP(__func__);
-	
+	NOT_IMPLEMENTED(__func__);
 	int ret = __syscall(SYS_fchown, fd, uid, gid);
 	if (ret != -EBADF || __syscall(SYS_fcntl, fd, F_GETFD) < 0)
 		return __syscall_ret(ret);

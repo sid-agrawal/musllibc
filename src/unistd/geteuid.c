@@ -4,7 +4,7 @@
 
 uid_t geteuid(void)
 {
-	NOOP(__func__);
-
+	NOT_IMPLEMENTED(__func__);
+	return -1;
 	return __syscall(SYS_geteuid);
 }

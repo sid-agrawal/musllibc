@@ -7,20 +7,12 @@
 
 int fcntl(int fd, int cmd, ...)
 {
+	NOT_IMPLEMENTED(__func__);
 	unsigned long arg;
 	va_list ap;
 	va_start(ap, cmd);
 	arg = va_arg(ap, unsigned long);
 	va_end(ap);
-	
-	if (libc_fs_ops.fcntl)
-	{
-		int ret = libc_fs_ops.fcntl(fd, cmd, arg);
-		return ret;
-	}
-	NOT_IMPLEMENTED(__func__);
-	return -1;
-
 	if (cmd == F_SETFL) arg |= O_LARGEFILE;
 	if (cmd == F_SETLKW) return syscall_cp(SYS_fcntl, fd, cmd, (void *)arg);
 	if (cmd == F_GETOWN) {

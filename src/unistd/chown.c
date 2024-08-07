@@ -5,7 +5,8 @@
 
 int chown(const char *path, uid_t uid, gid_t gid)
 {
-	NOOP(__func__);
+	NOT_IMPLEMENTED(__func__);
+	return -1;
 	
 #ifdef SYS_chown
 	return syscall(SYS_chown, path, uid, gid);
